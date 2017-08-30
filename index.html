@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Game of Thrones</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- http://api.openweathermap.org/data/2.5/forecast/daily?id=524901&APPID={0bbca8607810584aa1430dced1b6f99b}
+    Make sure to put your unique API key in the URL (taking out the brackets).
+    &APPID={INSERTAPIKEY} will need to be at the end of each URL you access below and in the assignment. -->
+    <script>
+        $(document).ready(function () {
+            $('#stark').click(function () {
+                // Stark
+                var url = 'https://www.anapioficeandfire.com/api/houses/362';
+                // console.log("bla");
+                $.get(url, function (res) {
+                    var html_str = "";
+                    html_str += "<h2>" + res.name + "</h2>";
+                    html_str += "<h2>" + res.words + "</h2>";
+                    html_str += "<p>" + res.titles + "</p>";
+                    $('#main-content').html(html_str);
+                }, 'json');
+                // don't forget to return false so the page doesn't refresh
+                return false;
+            });
+            $('#targaryen').click(function () {
+                // Targaryen
+                var url = 'https://www.anapioficeandfire.com/api/houses/378';
+                $.get(url, function (res) {
+                    var html_str = "";
+                    html_str += "<h2>" + res.name + "</h2>";
+                    html_str += "<h2>" + res.words + "</h2>";
+                    html_str += "<p>" + res.titles + "</p>";
+                    $('#main-content').html(html_str);
+                }, 'json');
+                // don't forget to return false so the page doesn't refresh
+                return false;
+            });
+            $('#lannister').click(function () {
+                // Lannister
+                var url = 'https://www.anapioficeandfire.com/api/houses/229';
+                $.get(url, function (res) {
+                    var html_str = "";
+                    html_str += "<h2>" + res.name + "</h2>";
+                    html_str += "<h2>" + res.words + "</h2>";
+                    html_str += "<p>" + res.titles + "</p>";
+                    $('#main-content').html(html_str);
+                }, 'json');
+                // don't forget to return false so the page doesn't refresh
+                return false;
+            });
+            $('#baratheon').click(function () {
+                // Baratheon
+                var url = 'https://www.anapioficeandfire.com/api/houses/16';
+                $.get(url, function (res) {
+                    var html_str = "";
+                    html_str += "<h2>" + res.name + "</h2>";
+                    html_str += "<h2>" + res.words + "</h2>";
+                    html_str += "<p>" + res.titles + "</p>";
+                    $('#main-content').html(html_str);
+                }, 'json');
+                // don't forget to return false so the page doesn't refresh
+                return false;
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header" class="row">
+            <h3 id = "stark" class="column twelve-s six-m three-l"><img src="stark.jpg" alt="House Stark"></h3>
+            <h3 id = "targaryen" class="column twelve-s six-m three-l"><img src="targaryen.jpg" alt="House Targaryen"></h3>
+            <h3 id = "lannister" class="column twelve-s six-m three-l"><img src="lannister.jpg" alt="House Lannister"></h3>
+            <h3 id = "baratheon" class="column twelve-s six-m three-l"><img src="baratheon.png" alt="House Baratheon"></h3>
+        </div>
+        <div id="main">
+            <!-- <div class="column twelve-s four-m three-l"> -->
+                <div id="main-content" class="content nine-l">
+                </div>
+            <!-- </div> -->
+        </div>
+    </div>
+</body>
+
+</html>
